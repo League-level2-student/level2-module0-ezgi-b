@@ -1,7 +1,50 @@
 package arrays;
 
+import java.util.Random;
+
 public class _00_ArrayCheatSheet {
 	public static void main(String[] args) {
+		
+		String[] stringy = {"Abby", "Bernard", "Carol", "Daniel", "Ella"};
+		System.out.println(stringy[2]);
+		stringy[2] = "Clarke";
+		System.out.println(stringy[2]);
+		for(int i = 0; i < stringy.length; i++) {
+			System.out.println(stringy[i]);
+		}
+		
+		Integer[] x = new Integer[50];
+		Random r = new Random();
+		for(int i = 0; i < x.length; i++) {
+			x[i] = r.nextInt(1001);
+		}
+		
+		int smallest = x[0];
+		for(int i = 1; i < x.length; i++) {
+			if(x[i]<smallest) {
+				smallest = x[i];
+			}
+		}
+		System.out.println("");
+		
+		System.out.println("Smallest Number: " + smallest);
+		
+		System.out.println("");
+		
+		for(int i = 0; i < x.length; i++) {
+			System.out.println(x[i]);
+		}
+		
+		System.out.println("");
+		
+		int largest = x[0];
+		for(int i = 1; i < x.length; i++) {
+			if(x[i]>largest) {
+				largest = x[i];
+			}
+		}
+		System.out.println("Largest Number: " + largest);
+		
 		//1. make an array of 5 Strings
 		
 		//2. print the third element in the array
