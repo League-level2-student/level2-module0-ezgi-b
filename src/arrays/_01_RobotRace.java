@@ -2,6 +2,8 @@ package arrays;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import org.jointheleague.graphical.robot.Robot;
 
 public class _01_RobotRace {
@@ -10,17 +12,39 @@ public class _01_RobotRace {
 		Robot[] bot = new Robot[5];
 		for(int i = 0; i < bot.length; i++) {
 			bot[i] = new Robot();
+			bot[i].setSpeed(100);
+			bot[i].miniaturize();
+			bot[i].penDown();
+			bot[i].setPenWidth(5);
+			bot[i].setRandomPenColor();
+			bot[i].setWindowSize(1200, 700);
 		}
 		
 		for(int i = 0; i < bot.length; i++) {
-			bot[i].moveTo(60 + 100*i, 540);
+			bot[i].moveTo(50 + 200*i, 400);
 		}	
 		
 		Random r = new Random();
-		while(bot[0].getY()>80 && bot[1].getY()>80 && bot[2].getY()>80 && bot[3].getY()>80 && bot[4].getY()>80) {
+		for(int e = 0; e <8; e++) {
 			for(int i = 0; i < bot.length; i++) {
-				bot[i].move(r.nextInt(51));
+				for(int z = 0; z < r.nextInt(8); z++) {
+					bot[i].move(3);
+					bot[i].turn(2);
+				}
 			}	
+		}
+		while(bot[0].getX()>51 && bot[1].getX()>251 && bot[2].getX()>451 && bot[3].getX()>651 && bot[4].getX()>851) {
+			for(int i = 0; i < bot.length; i++) {
+				for(int z = 0; z < r.nextInt(8); z++) {
+					bot[i].move(3);
+					bot[i].turn(2);
+				}
+			}	
+		}
+		for(int i = 0; i < bot.length; i++) {
+			if(bot[i].getX()<=(51 + 200*i)) {
+				JOptionPane.showMessageDialog(null, "Bot #" + i + " wins!");
+			}
 		}
 	}
 	//1. make a main method
